@@ -88,7 +88,7 @@ export default abstract class SfpCommand extends Command {
             SFPLogger.printHeaderLine('',COLOR_HEADER,LoggerLevel.INFO);
             SFPLogger.log(
                 COLOR_HEADER(
-                    `sfp  -- Salesforce Package Manager -Version:${this.config.version} -Release:${this.config.pjson.release}`
+                    `sfp  -- Flxbl's Salesforce Package Manager -Version:${this.config.version} -Release:${this.config.pjson.release}`
                 )
             );
 

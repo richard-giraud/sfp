@@ -108,7 +108,7 @@
                 "description": "Commands around release definition"
             },
             "orchestrator": {
-                "description": "Orchestrate packages from a monorepo through its lifecycle, driven by descriptors in your sfdx-project.json"
+                "description": "[Deprecated] Orchestrate packages from a monorepo through its lifecycle, driven by descriptors in your sfdx-project.json"
             },
             "pool": {
                 "description": "Manage the pooled orgs created by the sfp orchestrator in prepare stage"
