@@ -103,6 +103,7 @@
     ],
     "oclif": {
         "commands": "./lib/commands",
+        "topicSeparator": " ",
         "topics": {
             "releasedefinition": {
                 "description": "Commands around release definition"
