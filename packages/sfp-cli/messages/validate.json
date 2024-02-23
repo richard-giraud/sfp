@@ -1,5 +1,5 @@
 {
-    "commandDescription": "Validate the incoming change against an earlier prepared scratchorg",
+    "commandDescription": "Build and Validate a set of artifacts against an enviroments prepared by Prepare Command",
     "devhubUsernameFlagDescription": "Authentication username for Dev Hub",
     "poolsFlagDescription": "Fetch scratch-org validation environment from one of listed pools, sequentially",
     "configFileFlagDescription":"(Required if the release modes are ff-relese-config or thorough-release-config), Path to the config file which determines how the release defintion should be generated",
