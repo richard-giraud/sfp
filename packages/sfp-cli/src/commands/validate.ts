@@ -119,12 +119,13 @@ export default class Validate extends SfpCommand {
                 )}`
             )
         );
+        if(this.flags.releaseconfig) {
+            SFPLogger.log(COLOR_HEADER(`Domains: ${this.flags.releaseconfig}`));
+        }
         if (this.flags.mode != ValidationMode.FAST_FEEDBACK) {
             SFPLogger.log(COLOR_HEADER(`Coverage Percentage: ${this.flags.coveragepercent}`));
         }
-        SFPLogger.log(
-            COLOR_HEADER(`Dependency Validation: ${this.flags.enabledependencyvalidation ? 'true' : 'false'}`)
-        );
+       
        
 
         SFPLogger.printHeaderLine('',COLOR_HEADER,LoggerLevel.INFO);

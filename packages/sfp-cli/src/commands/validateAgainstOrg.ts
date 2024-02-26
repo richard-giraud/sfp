@@ -6,7 +6,7 @@ import SFPLogger, { COLOR_HEADER, COLOR_KEY_MESSAGE } from '@flxblio/sfp-logger'
 import * as fs from 'fs-extra';
 import ValidateError from '../errors/ValidateError';
 import ValidateResult from '../impl/validate/ValidateResult';
-import { loglevel, logsgroupsymbol, requiredUserNameFlag, targetdevhubusername } from '../flags/sfdxflags';
+import { arrayFlagSfdxStyle, loglevel, logsgroupsymbol, requiredUserNameFlag, targetdevhubusername } from '../flags/sfdxflags';
 import { Flags } from '@oclif/core';
 
 
@@ -81,6 +81,9 @@ export default class ValidateAgainstOrg extends SfpCommand {
 
         SFPLogger.log(COLOR_HEADER(`command: ${COLOR_KEY_MESSAGE(`validateAgainstOrg`)}`));
         SFPLogger.log(COLOR_HEADER(`Target Org: ${this.flags.targetorg}`));
+        if(this.flags.releaseconfig) {
+            SFPLogger.log(COLOR_HEADER(`Domains: ${this.flags.releaseconfig}`));
+        }
         SFPLogger.log(
             COLOR_HEADER(
                 `Validation Mode: ${COLOR_KEY_MESSAGE(
