@@ -81,7 +81,7 @@ export default class ValidateAgainstOrg extends SfpCommand {
 
         SFPLogger.log(COLOR_HEADER(`command: ${COLOR_KEY_MESSAGE(`validateAgainstOrg`)}`));
         SFPLogger.log(COLOR_HEADER(`Target Org: ${this.flags.targetorg}`));
-        if(this.flags.releaseconfig) {
+        if(this.flags.releaseconfig){
             SFPLogger.log(COLOR_HEADER(`Domains: ${this.flags.releaseconfig}`));
         }
         SFPLogger.log(
