@@ -436,9 +436,6 @@ export default class ValidateImpl implements PostDeployHook, PreDeployHook {
 			this.logger,
 			this.props,
 		);
-		if (buildProps.includeOnlyPackages) {
-			printIncludeOnlyPackages(buildProps.includeOnlyPackages);
-		}
 
 		const buildImpl: BuildImpl = new BuildImpl(buildProps);
 		const { generatedPackages, failedPackages } = await buildImpl.exec();
@@ -592,18 +589,6 @@ export default class ValidateImpl implements PostDeployHook, PreDeployHook {
 			SFPLogger.printHeaderLine('',COLOR_HEADER,LoggerLevel.INFO);
 		}
 
-		function printIncludeOnlyPackages(includeOnlyPackages: string[]) {
-			SFPLogger.log(
-				COLOR_KEY_MESSAGE(
-					`Build will include the below packages as per inclusive filter`,
-				),
-				LoggerLevel.INFO,
-			);
-			SFPLogger.log(
-				COLOR_KEY_VALUE(`${includeOnlyPackages.toString()}`),
-				LoggerLevel.INFO,
-			);
-		}
 	}
 
 	private async fetchScratchOrgFromPool(
