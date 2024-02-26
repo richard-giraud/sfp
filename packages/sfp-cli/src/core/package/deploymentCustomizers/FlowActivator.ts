@@ -47,7 +47,7 @@ export default class FlowActivator implements DeploymentCustomizer {
 
                 if (flowsToBeActivated.length > 0) {
                     SFPLogger.log(
-                        `Active flows found in the package, attempting to activate latest versions`,
+                        `Active flows found in the package, attempting to activate latest versions of ${flowsToBeActivated}`,
                         LoggerLevel.INFO,
                         logger
                     );
