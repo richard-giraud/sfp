@@ -27,7 +27,7 @@ export default class ValidateAgainstOrg extends SfpCommand {
             options: ['individual', 'fastfeedback', 'thorough', 'ff-release-config', 'thorough-release-config'],
         }),
         releaseconfig: Flags.string({
-            description: messages.getMessage('configFileFlagDescription'),
+            description: messages.getMessage('releaseConfigFileFlagDescription'),
         }),
         coveragepercent: Flags.integer({
             description: messages.getMessage('coveragePercentFlagDescription'),
