@@ -271,7 +271,7 @@ export default abstract class BuildBase extends SfpCommand {
         return buildProps;
         function printIncludeOnlyPackages(includeOnlyPackages: string[]) {
             SFPLogger.log(
-                COLOR_KEY_MESSAGE(`Build will include the below packages as per inclusive filter`),
+                COLOR_KEY_MESSAGE(`Build will include the below packages as per release config(domain)`),
                 LoggerLevel.INFO
             );
             SFPLogger.log(COLOR_KEY_VALUE(`${includeOnlyPackages.toString()}`), LoggerLevel.INFO);
@@ -296,7 +296,7 @@ export default abstract class BuildBase extends SfpCommand {
 
         function printIncludeOnlyPackages(includeOnlyPackages: string[]) {
             SFPLogger.log(
-                COLOR_KEY_MESSAGE(`Build will include the below packages as per inclusive filter`),
+                COLOR_KEY_MESSAGE(`Build will include the below packages as per release config(domain)`),
                 LoggerLevel.INFO
             );
             SFPLogger.log(COLOR_KEY_VALUE(`${includeOnlyPackages.toString()}`), LoggerLevel.INFO);

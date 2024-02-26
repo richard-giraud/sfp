@@ -518,7 +518,7 @@ export default class ValidateImpl implements PostDeployHook, PreDeployHook {
 
 				function printIncludeOnlyPackages(includeOnlyPackages: string[]) {
 						SFPLogger.log(
-								COLOR_KEY_MESSAGE(`Validate will include the below packages as per inclusive filter`),
+								COLOR_KEY_MESSAGE(`Validate will include the below packages as per release config(domain)`),
 								LoggerLevel.INFO
 						);
 						SFPLogger.log(COLOR_KEY_VALUE(`${includeOnlyPackages.toString()}`), LoggerLevel.INFO);

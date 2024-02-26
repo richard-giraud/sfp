@@ -6,7 +6,7 @@ import SFPLogger, { COLOR_HEADER, COLOR_KEY_MESSAGE } from '@flxblio/sfp-logger'
 import * as fs from 'fs-extra';
 import ValidateError from '../errors/ValidateError';
 import ValidateResult from '../impl/validate/ValidateResult';
-import { arrayFlagSfdxStyle, loglevel, logsgroupsymbol, requiredUserNameFlag, targetdevhubusername } from '../flags/sfdxflags';
+import { loglevel, logsgroupsymbol, requiredUserNameFlag, targetdevhubusername } from '../flags/sfdxflags';
 import { Flags } from '@oclif/core';
 
 
