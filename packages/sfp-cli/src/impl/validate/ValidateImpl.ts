@@ -48,11 +48,11 @@ import ExternalPackage2DependencyResolver from "../../core/package/dependencies/
 import ExternalDependencyDisplayer from "../../core/display/ExternalDependencyDisplayer";
 import { PreDeployHook } from "../deploy/PreDeployHook";
 import GroupConsoleLogs from "../../ui/GroupConsoleLogs";
-import ReleaseConfigLoader from "../release/ReleaseConfigLoader";
 import { mapInstalledArtifactstoPkgAndCommits } from "../../utils/FetchArtifactsFromOrg";
 import { ApexTestValidator } from "./ApexTestValidator";
 import OrgInfoDisplayer from "../../ui/OrgInfoDisplayer";
 import FileOutputHandler from "../../outputs/FileOutputHandler";
+import { ReleaseConfigAggregator } from "../release/ReleaseConfigAggregator";
 
 
 export enum ValidateAgainst {
@@ -71,7 +71,7 @@ export interface ValidateProps {
 	installExternalDependencies?: boolean;
 	validateAgainst: ValidateAgainst;
 	validationMode: ValidationMode;
-	releaseConfigPath?: string;
+	releaseConfigPaths?: string[];
 	coverageThreshold: number;
 	logsGroupSymbol: string[];
 	targetOrg?: string;
@@ -130,6 +130,7 @@ export default class ValidateImpl implements PostDeployHook, PreDeployHook {
 				OrgInfoDisplayer.writeOrgInfoToMarkDown(this.orgAsSFPOrg);
 			}
 
+			
 
 			//Fetch Artifacts in the org
 			let packagesInstalledInOrgMappedToCommits: { [p: string]: string };
@@ -509,12 +510,23 @@ export default class ValidateImpl implements PostDeployHook, PreDeployHook {
 				props.validationMode ===
 				ValidationMode.THOROUGH_LIMITED_BY_RELEASE_CONFIG
 			) {
-				let releaseConfigLoader: ReleaseConfigLoader = new ReleaseConfigLoader(
-					logger,
-					props.releaseConfigPath,
-					true
-				);
-				return releaseConfigLoader.getPackagesAsPerReleaseConfig();
+				let includeOnlyPackages = [];
+				if (props.releaseConfigPaths?.length > 0) {
+					let releaseConfigAggregatedLoader = new ReleaseConfigAggregator(logger);
+					releaseConfigAggregatedLoader.addReleaseConfigs(props.releaseConfigPaths); 
+					includeOnlyPackages = releaseConfigAggregatedLoader.getAllPackages();
+					printIncludeOnlyPackages(includeOnlyPackages);
+			}
+			return includeOnlyPackages;
+
+				function printIncludeOnlyPackages(includeOnlyPackages: string[]) {
+						SFPLogger.log(
+								COLOR_KEY_MESSAGE(`Validate will include the below packages as per inclusive filter`),
+								LoggerLevel.INFO
+						);
+						SFPLogger.log(COLOR_KEY_VALUE(`${includeOnlyPackages.toString()}`), LoggerLevel.INFO);
+				}
+
 			}
 		}
 
@@ -702,7 +714,7 @@ export default class ValidateImpl implements PostDeployHook, PreDeployHook {
     }
 
     return { isToFailDeployment: false };
-}
+  }
 
 
 	async postDeployPackage(

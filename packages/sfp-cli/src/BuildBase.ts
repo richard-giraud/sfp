@@ -25,6 +25,7 @@ import SfpPackage from './core/package/SfpPackage';
 import ReleaseConfigLoader from './impl/release/ReleaseConfigLoader';
 import { Flags } from '@oclif/core';
 import { arrayFlagSfdxStyle, loglevel, orgApiVersionFlagSfdxStyle, targetdevhubusername } from './flags/sfdxflags';
+import { ReleaseConfigAggregator } from './impl/release/ReleaseConfigAggregator';
 
 // Initialize Messages with the current plugin directory
 Messages.importMessagesDirectory(__dirname);
@@ -286,12 +287,9 @@ export default abstract class BuildBase extends SfpCommand {
 
         if (releaseConfigFilePaths?.length > 0) {
             buildProps.includeOnlyPackages = [];
-            for (const releaseConfigFilePath of releaseConfigFilePaths) {
-                let releaseConfigLoader: ReleaseConfigLoader = new ReleaseConfigLoader(logger, releaseConfigFilePath);
-                buildProps.includeOnlyPackages.push(...releaseConfigLoader.getPackagesAsPerReleaseConfig());
-                //Create a map of packages with their respective release config file
-                this.releaseConfigMap[releaseConfigFilePath] = releaseConfigLoader.getPackagesAsPerReleaseConfig();
-            }
+            let releaseConfigAggregatedLoader = new ReleaseConfigAggregator(logger);
+			releaseConfigAggregatedLoader.addReleaseConfigs(releaseConfigFilePaths); 
+			buildProps.includeOnlyPackages = releaseConfigAggregatedLoader.getAllPackages();
             printIncludeOnlyPackages(buildProps.includeOnlyPackages);
         }
         return buildProps;

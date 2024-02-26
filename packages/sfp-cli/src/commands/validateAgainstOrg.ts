@@ -38,6 +38,9 @@ export default class ValidateAgainstOrg extends SfpCommand {
             default: false,
         }),
         disableartifactupdate: Flags.boolean({
+            deprecated: {
+              message: "This flag is deprecated, Artifacts used for validation are never recorded in the org "
+            },
             description: messages.getMessage('disableArtifactUpdateFlagDescription'),
             default: false,
         }),
@@ -112,7 +115,7 @@ export default class ValidateAgainstOrg extends SfpCommand {
                 targetOrg: this.flags.targetorg,
                 diffcheck: this.flags.diffcheck,
                 baseBranch: this.flags.basebranch,
-                disableArtifactCommit: this.flags.disableartifactupdate,
+                disableArtifactCommit: true,
                 disableSourcePackageOverride: this.flags.disablesourcepkgoverride,
                 disableParallelTestExecution: this.flags.disableparalleltesting,
                 orgInfo: this.flags.orginfo,
@@ -165,19 +168,21 @@ export default class ValidateAgainstOrg extends SfpCommand {
             }
         }
 
-        function setReleaseConfigForReleaseBasedModes(releaseconfigPath:string,validateProps: ValidateProps) {
+        function setReleaseConfigForReleaseBasedModes(releaseConfigPaths: string[], validateProps: ValidateProps) {
             if (validateProps.validationMode == ValidationMode.FASTFEEDBACK_LIMITED_BY_RELEASE_CONFIG ||
                 validateProps.validationMode == ValidationMode.THOROUGH_LIMITED_BY_RELEASE_CONFIG) {
-                if (releaseconfigPath && fs.existsSync(releaseconfigPath)) {
-                    validateProps.releaseConfigPath = releaseconfigPath;
+                if (!releaseConfigPaths || releaseConfigPaths.length === 0) {
+                    throw new Error(`Release config paths are required when using validation by release config`);
                 }
-
-                else {
-                    if (!releaseconfigPath)
-                        throw new Error(`Release config is required when using validation by release config`);
-                    else if (!fs.existsSync(releaseconfigPath))
-                        throw new Error(`Release config at ${releaseconfigPath} doesnt exist, Please check the path`);
+        
+                const validPaths = releaseConfigPaths.filter(path => fs.existsSync(path));
+        
+                if (validPaths.length === 0) {
+                    throw new Error(`None of the provided release config paths exist, please check the paths: ${releaseConfigPaths.join(', ')}`);
                 }
+        
+                // Assuming validateProps can handle an array of paths; adjust as per your implementation
+                validateProps.releaseConfigPaths = validPaths;
             }
         }
     }
