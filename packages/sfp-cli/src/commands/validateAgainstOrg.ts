@@ -6,7 +6,7 @@ import SFPLogger, { COLOR_HEADER, COLOR_KEY_MESSAGE } from '@flxblio/sfp-logger'
 import * as fs from 'fs-extra';
 import ValidateError from '../errors/ValidateError';
 import ValidateResult from '../impl/validate/ValidateResult';
-import { loglevel, logsgroupsymbol, requiredUserNameFlag, targetdevhubusername } from '../flags/sfdxflags';
+import { arrayFlagSfdxStyle, loglevel, logsgroupsymbol, requiredUserNameFlag, targetdevhubusername } from '../flags/sfdxflags';
 import { Flags } from '@oclif/core';
 
 
@@ -26,7 +26,8 @@ export default class ValidateAgainstOrg extends SfpCommand {
             required: true,
             options: ['individual', 'fastfeedback', 'thorough', 'ff-release-config', 'thorough-release-config'],
         }),
-        releaseconfig: Flags.string({
+        releaseconfig: arrayFlagSfdxStyle({
+            aliases: ['domain'],
             description: messages.getMessage('releaseConfigFileFlagDescription'),
         }),
         coveragepercent: Flags.integer({
@@ -39,7 +40,7 @@ export default class ValidateAgainstOrg extends SfpCommand {
         }),
         disableartifactupdate: Flags.boolean({
             deprecated: {
-              message: "This flag is deprecated, Artifacts used for validation are never recorded in the org "
+              message: "--disableartifactupdate flag is deprecated, Artifacts used for validation are never recorded in the org "
             },
             description: messages.getMessage('disableArtifactUpdateFlagDescription'),
             default: false,
