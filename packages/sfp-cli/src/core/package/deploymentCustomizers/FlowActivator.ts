@@ -62,6 +62,14 @@ export default class FlowActivator implements DeploymentCustomizer {
                     await this.deactivateFlow(flowsToBeDeactivated, sfpOrg, logger);
                 }
             }
+            else
+            {
+                SFPLogger.log(
+                    `No flows found in the package, skipping flow activation/deactivation`,
+                    LoggerLevel.INFO,
+                    logger
+                );
+            }
 
             return {
                 deploy_id: `000000`,
