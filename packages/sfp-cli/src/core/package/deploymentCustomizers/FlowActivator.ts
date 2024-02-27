@@ -1,7 +1,7 @@
 import { ComponentSet, registry } from '@salesforce/source-deploy-retrieve';
 import SFPOrg from '../../org/SFPOrg';
 import QueryHelper from '../../queryHelper/QueryHelper';
-import SFPLogger, { Logger, LoggerLevel } from '@flxblio/sfp-logger';
+import SFPLogger, { COLOR_KEY_MESSAGE, Logger, LoggerLevel } from '@flxblio/sfp-logger';
 import { activate, deactivate, deleteFlows, Flow, FlowDefinition, getFlowDefinition } from '../../flows/FlowOperations';
 import SfpPackage, { PackageType } from '../SfpPackage';
 import { Connection } from '@salesforce/core';
@@ -84,7 +84,7 @@ export default class FlowActivator implements DeploymentCustomizer {
     }
     private async activateLatestVersionOfFlows(flowsToBeActivated: string[], sfpOrg: SFPOrg, logger: Logger) {
         for (const flowName of flowsToBeActivated) {
-            let query = `SELECT DeveloperName, NamespacePrefix, LatestVersionId FROM FlowDefinition WHERE DeveloperName = '${flowName}'`;
+            let query = `SELECT Id, DeveloperName, ActiveVersion.FullName, ActiveVersion.VersionNumber, NamespacePrefix,LatestVersion.VersionNumber,LatestVersionId FROM FlowDefinition WHERE DeveloperName = '${flowName}'`;
     
             try {
                 let flowDefinitionsInOrg = await QueryHelper.query<FlowDefinition>(query, sfpOrg.getConnection(), true);
@@ -92,13 +92,13 @@ export default class FlowActivator implements DeploymentCustomizer {
                 for (const flowDefinition of flowDefinitionsInOrg) {
                     if (flowDefinition.ActiveVersion == null) {
                         try {
-                            await activate(flowDefinition, sfpOrg); // Assuming 'activate' is defined elsewhere
-                            SFPLogger.log(`Flow ${flowDefinition.DeveloperName} is activated in the org successfully`, LoggerLevel.INFO, logger);
+                            await activate(flowDefinition, sfpOrg); 
+                            SFPLogger.log(`Flow ${COLOR_KEY_MESSAGE(flowDefinition.DeveloperName)} is activated in the org successfully`, LoggerLevel.INFO, logger);
                         } catch (activationError) {
                             SFPLogger.log(`Error activating flow ${flowDefinition.DeveloperName}: ${activationError}`, LoggerLevel.ERROR, logger);
                         }
                     } else {
-                        SFPLogger.log(`Flow ${flowDefinition.DeveloperName}'s latest version is already active, skipping activation`, LoggerLevel.INFO, logger);
+                        SFPLogger.log(`Flow ${COLOR_KEY_MESSAGE(flowDefinition.DeveloperName)}'s latest version is already active, skipping activation`, LoggerLevel.INFO, logger);
                     }
                 }
             } catch (queryError) {
@@ -119,7 +119,7 @@ export default class FlowActivator implements DeploymentCustomizer {
                 );
 
                 await deactivate(flowdefinition, sfpOrg);
-                SFPLogger.log(`Flow ${flow} is marked as inactive in the org sucessfully`, LoggerLevel.INFO, logger);
+                SFPLogger.log(`Flow ${COLOR_KEY_MESSAGE(flow)} is marked as inactive in the org sucessfully`, LoggerLevel.INFO, logger);
             } catch (error) {
                 SFPLogger.log(`Unable to deactive flow ${flow}, skipping deactivation`, LoggerLevel.ERROR, logger);
                 SFPLogger.log(`Error Details : ${error.stack}`, LoggerLevel.TRACE);
