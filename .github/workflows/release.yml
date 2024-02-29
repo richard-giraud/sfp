@@ -70,10 +70,10 @@ jobs:
 
  #Promotion Stages
 
-# Sfpowercripts
 
-  sfpowerscripts-alpha:
-    name: 'sfpowerscripts alpha'
+
+  sfp-alpha:
+    name: 'sfp alpha'
     uses: ./.github/workflows/promotePackage.yml
     with:
       version: 'alpha'
@@ -110,13 +110,13 @@ jobs:
     needs: [ build-docker-lite ]
 
 
-  sfpowerscripts-beta:
-    name: 'sfpowerscripts beta'
+  sfp-beta:
+    name: 'sfp beta'
     uses: ./.github/workflows/promotePackage.yml
     with:
       version: 'beta'
       pathToPackageJson: 'packages/sfp-cli/package.json'
-      environment: sfpowerscripts-beta
+      environment: sfp-beta
     secrets:
       npm-token: ${{ secrets.NPM_TOKEN }}
     needs: [ build ]
@@ -125,7 +125,7 @@ jobs:
     name: 'promote docker to beta'
     uses: ./.github/workflows/sfp-promote-docker.yml
     with:
-      job-environment: 'sfpowerscripts-beta-docker'
+      job-environment: 'sfp-beta-docker'
       repo: 'flxbl-io'
       new-tag: beta   
       image: 'sfp-lite-rc' 
@@ -150,8 +150,8 @@ jobs:
  
 
 
-  sfpowerscripts-prod:
-    name: 'sfpowerscripts prod'
+  sfp-prod:
+    name: 'sfp prod'
     uses: ./.github/workflows/promotePackage.yml
     with:
       version: 'latest'
