@@ -24,7 +24,7 @@ const messages = Messages.loadMessages('@flxblio/sfp', 'install');
 
 export default class Install extends SfpCommand {
     public static description = messages.getMessage('commandDescription');
-    static aliases = ['orchestrator:deploy',]
+    static aliases = ['orchestrator:deploy','deploy']
 
     public static examples = [`$ sfp install -u <username>`];
 
