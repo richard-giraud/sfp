@@ -28,7 +28,7 @@ const messages = Messages.loadMessages('@flxblio/sfp', 'prepare');
 
 export default class Prepare extends SfpCommand {
 
-    static aliases = ['orchestrator:prepare']
+    static aliases = ['orchestrator:prepare','prepare']
     
     protected static requiresDevhubUsername = true;
     protected static requiresProject = true;
@@ -203,7 +203,7 @@ export default class Prepare extends SfpCommand {
     public validatePoolConfig(poolConfig: any) {
         let ajv = new Ajv({ allErrors: true });
         let schema = fs.readJSONSync(
-            path.join(__dirname, '..', '..', 'resources', 'schemas', 'pooldefinition.schema.json'),
+            path.join(__dirname, '..','..', '..', 'resources', 'schemas', 'pooldefinition.schema.json'),
             { encoding: 'UTF-8' }
         );
         let validator = ajv.compile(schema);
