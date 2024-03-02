@@ -50,7 +50,7 @@ runs:
          crane  cp ${{ inputs.registry }}/${{ inputs.repo }}/${{ inputs.image }}:${{ inputs.tag }}  ${{ inputs.registry }}/${{ inputs.repo}}/${{ inputs.image-as }}:${{ inputs.with-tag }}
          FULL_DIGEST=$(crane digest ${{ inputs.registry }}/${{ inputs.repo }}/${{ inputs.image-as }}:${{ inputs.with-tag }})
          DIGEST=${FULL_DIGEST#*:}
-         echo "DIGEST=$DIGEST" >> "$GITHUB_OUTPUT"
+         echo "DIGEST=$FULL_DIGEST" >> "$GITHUB_OUTPUT"
 
 
  
