@@ -85,7 +85,7 @@ export default class ValidateAgainstPool extends SfpCommand {
         disableartifactupdate: Flags.boolean({
             description: messages.getMessage('disableArtifactUpdateFlagDescription'),
             deprecated: {
-                message: "This flag is deprecated, Artifacts used for validation are never recorded in the org "
+                message: "disableartifactupdate flag is deprecated, Artifacts used for validation are never recorded in the org "
             },
             default: false,
         }),
