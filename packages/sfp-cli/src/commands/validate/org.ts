@@ -14,7 +14,7 @@ Messages.importMessagesDirectory(__dirname);
 const messages = Messages.loadMessages('@flxbl-io/sfp', 'validateAgainstOrg');
 
 export default class ValidateAgainstOrg extends SfpCommand {
-    static aliases = ['orchestrator:validateagainstorg', 'validateagainstorg']
+    static aliases = ['orchestrator:validateagainstorg', 'validateAgainstOrg']
     public static description = messages.getMessage('commandDescription');
 
     public static examples = [`$ sfp validate org  -o <targetorg>`];
