@@ -1,9 +1,9 @@
 `@flxbl-io/sfp help`
-===================
+====================
 
 Display help for @flxbl-io/sfp.
 
-* [`@flxbl-io/sfp help [COMMANDS]`](#flxbliosfp-help-commands)
+* [`@flxbl-io/sfp help [COMMANDS]`](#flxbl-iosfp-help-commands)
 
 ## `@flxbl-io/sfp help [COMMANDS]`
 
@@ -23,4 +23,4 @@ DESCRIPTION
   Display help for @flxbl-io/sfp.
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/flxbl-io/sfp)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.2.17/src/commands/help.ts)_

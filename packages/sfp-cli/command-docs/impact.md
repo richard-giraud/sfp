@@ -1,10 +1,10 @@
 `@flxbl-io/sfp impact`
-=====================
+======================
 
 Utilities to help you understand the impact of various components in sfp
 
-* [`@flxbl-io/sfp impact package`](#flxbliosfp-impact-package)
-* [`@flxbl-io/sfp impact releaseconfig`](#flxbliosfp-impact-releaseconfig)
+* [`@flxbl-io/sfp impact package`](#flxbl-iosfp-impact-package)
+* [`@flxbl-io/sfp impact releaseconfig`](#flxbl-iosfp-impact-releaseconfig)
 
 ## `@flxbl-io/sfp impact package`
 
@@ -24,7 +24,7 @@ DESCRIPTION
   Figures out impacted packages of a project, due to a change from the last known tags
 ```
 
-_See code: [src/commands/impact/package.ts](https://github.com/flxbl-io/sfp)_
+_See code: [src/commands/impact/package.ts](https://github.com/flxbl-io/sfp/blob/v37.0.1/src/commands/impact/package.ts)_
 
 ## `@flxbl-io/sfp impact releaseconfig`
 
@@ -50,4 +50,4 @@ DESCRIPTION
   Figures out impacted release configurations of a project, due to a change,from the last known tags
 ```
 
-_See code: [src/commands/impact/releaseconfig.ts](https://github.com/flxbl-io/sfp)_
+_See code: [src/commands/impact/releaseconfig.ts](https://github.com/flxbl-io/sfp/blob/v37.0.1/src/commands/impact/releaseconfig.ts)_

@@ -1,9 +1,9 @@
 `@flxbl-io/sfp releasedefinition`
-================================
+=================================
 
 Commands around managing release defintion
 
-* [`@flxbl-io/sfp releasedefinition generate`](#flxbliosfp-releasedefinition-generate)
+* [`@flxbl-io/sfp releasedefinition generate`](#flxbl-iosfp-releasedefinition-generate)
 
 ## `@flxbl-io/sfp releasedefinition generate`
 
@@ -11,8 +11,8 @@ Generates release definition based on the artifacts at the specified head of sou
 
 ```
 USAGE
-  $ @flxbl-io/sfp releasedefinition generate -c <value> -f <value> -n <value> [-b <value>] [-d <value>] [--nopush] [--forcepush ]
-    [-m <value>] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+  $ @flxbl-io/sfp releasedefinition generate -c <value> -f <value> -n <value> [-b <value>] [-d <value>] [--nopush] [--forcepush
+    ] [-m <value>] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 FLAGS
   -b, --branchname=<value>   Repository branch in which the release definition files are to be written
@@ -35,4 +35,4 @@ EXAMPLES
   $ sfp releasedefinition:generate -n <releaseName> -c <gitref> -f <configfile>
 ```
 
-_See code: [src/commands/releasedefinition/generate.ts](https://github.com/flxbl-io/sfp)_
+_See code: [src/commands/releasedefinition/generate.ts](https://github.com/flxbl-io/sfp/blob/v37.0.1/src/commands/releasedefinition/generate.ts)_

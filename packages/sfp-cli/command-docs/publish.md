@@ -1,9 +1,9 @@
 `@flxbl-io/sfp publish`
-======================
+=======================
 
 Publish packages to a NPM Compatible artifact registry
 
-* [`@flxbl-io/sfp publish`](#flxbliosfp-publish)
+* [`@flxbl-io/sfp publish`](#flxbl-iosfp-publish)
 
 ## `@flxbl-io/sfp publish`
 
@@ -49,4 +49,4 @@ EXAMPLES
   $ sfp publish --npm
 ```
 
-_See code: [src/commands/publish.ts](https://github.com/flxbl-io/sfp)_
+_See code: [src/commands/publish.ts](https://github.com/flxbl-io/sfp/blob/v37.0.1/src/commands/publish.ts)_

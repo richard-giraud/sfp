@@ -1,9 +1,9 @@
 `@flxbl-io/sfp metrics`
-======================
+=======================
 
 Report metrics to sfp supported metric providers
 
-* [`@flxbl-io/sfp metrics report`](#flxbliosfp-metrics-report)
+* [`@flxbl-io/sfp metrics report`](#flxbl-iosfp-metrics-report)
 
 ## `@flxbl-io/sfp metrics report`
 
@@ -30,4 +30,4 @@ EXAMPLES
   $ sfp metrics:report -m <metric> -t <type> -v <value>
 ```
 
-_See code: [src/commands/metrics/report.ts](https://github.com/flxbl-io/sfp)_
+_See code: [src/commands/metrics/report.ts](https://github.com/flxbl-io/sfp/blob/v37.0.1/src/commands/metrics/report.ts)_

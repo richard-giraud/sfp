@@ -1,9 +1,9 @@
 `@flxbl-io/sfp repo`
-===================
+====================
 
 Manage your project repository
 
-* [`@flxbl-io/sfp repo patch`](#flxbliosfp-repo-patch)
+* [`@flxbl-io/sfp repo patch`](#flxbl-iosfp-repo-patch)
 
 ## `@flxbl-io/sfp repo patch`
 
@@ -11,8 +11,8 @@ Generate a dynamic branch with the packages patched to the contents as mentioned
 
 ```
 USAGE
-  $ @flxbl-io/sfp repo patch -p <value> -s <value> -t <value> [--scope <value> [--npm | -f <value>]] [--npmrcpath
-    <value> ] [-g <value>] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+  $ @flxbl-io/sfp repo patch -p <value> -s <value> -t <value> [--scope <value> [--npm | -f <value>]]
+    [--npmrcpath <value> ] [-g <value>] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 FLAGS
   -f, --scriptpath=<value>             (Optional: no-NPM) Path to script that authenticates and downloads artifacts from
@@ -37,4 +37,4 @@ EXAMPLES
   $ sfp repo:patch -n <releaseName>
 ```
 
-_See code: [src/commands/repo/patch.ts](https://github.com/flxbl-io/sfp)_
+_See code: [src/commands/repo/patch.ts](https://github.com/flxbl-io/sfp/blob/v37.0.1/src/commands/repo/patch.ts)_

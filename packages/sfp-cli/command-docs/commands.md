@@ -1,9 +1,9 @@
 `@flxbl-io/sfp commands`
-=======================
+========================
 
 list all the commands
 
-* [`@flxbl-io/sfp commands`](#flxbliosfp-commands)
+* [`@flxbl-io/sfp commands`](#flxbl-iosfp-commands)
 
 ## `@flxbl-io/sfp commands`
 
@@ -35,4 +35,4 @@ DESCRIPTION
   list all the commands
 ```
 
-_See code: [@oclif/plugin-commands](https://github.com/flxbl-io/sfp)_
+_See code: [@oclif/plugin-commands](https://github.com/oclif/plugin-commands/blob/v3.0.3/src/commands/commands.ts)_

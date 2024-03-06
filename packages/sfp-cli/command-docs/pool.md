@@ -1,14 +1,14 @@
 `@flxbl-io/sfp pool`
-===================
+====================
 
 Build and manage scratch org or sandbox pools
 
-* [`@flxbl-io/sfp pool delete`](#flxbliosfp-pool-delete)
-* [`@flxbl-io/sfp pool fetch`](#flxbliosfp-pool-fetch)
-* [`@flxbl-io/sfp pool list`](#flxbliosfp-pool-list)
-* [`@flxbl-io/sfp pool metrics publish`](#flxbliosfp-pool-metrics-publish)
-* [`@flxbl-io/sfp pool org delete`](#flxbliosfp-pool-org-delete)
-* [`@flxbl-io/sfp pool prepare`](#flxbliosfp-pool-prepare)
+* [`@flxbl-io/sfp pool delete`](#flxbl-iosfp-pool-delete)
+* [`@flxbl-io/sfp pool fetch`](#flxbl-iosfp-pool-fetch)
+* [`@flxbl-io/sfp pool list`](#flxbl-iosfp-pool-list)
+* [`@flxbl-io/sfp pool metrics publish`](#flxbl-iosfp-pool-metrics-publish)
+* [`@flxbl-io/sfp pool org delete`](#flxbl-iosfp-pool-org-delete)
+* [`@flxbl-io/sfp pool prepare`](#flxbl-iosfp-pool-prepare)
 
 ## `@flxbl-io/sfp pool delete`
 
@@ -41,7 +41,7 @@ EXAMPLES
   $ sfp pool:delete --orphans -v devhub
 ```
 
-_See code: [src/commands/pool/delete.ts](https://github.com/flxbl-io/sfp)_
+_See code: [src/commands/pool/delete.ts](https://github.com/flxbl-io/sfp/blob/v37.0.1/src/commands/pool/delete.ts)_
 
 ## `@flxbl-io/sfp pool fetch`
 
@@ -80,7 +80,7 @@ EXAMPLES
   $ sfp pool:fetch  -t core -v devhub -s testuser@test.com
 ```
 
-_See code: [src/commands/pool/fetch.ts](https://github.com/flxbl-io/sfp)_
+_See code: [src/commands/pool/fetch.ts](https://github.com/flxbl-io/sfp/blob/v37.0.1/src/commands/pool/fetch.ts)_
 
 ## `@flxbl-io/sfp pool list`
 
@@ -117,7 +117,7 @@ EXAMPLES
   $ sfp pool:list -t core -v devhub -m -a
 ```
 
-_See code: [src/commands/pool/list.ts](https://github.com/flxbl-io/sfp)_
+_See code: [src/commands/pool/list.ts](https://github.com/flxbl-io/sfp/blob/v37.0.1/src/commands/pool/list.ts)_
 
 ## `@flxbl-io/sfp pool metrics publish`
 
@@ -141,7 +141,7 @@ EXAMPLES
   $ sfp pool:metrics:publish -v <myDevHub>
 ```
 
-_See code: [src/commands/pool/metrics/publish.ts](https://github.com/flxbl-io/sfp)_
+_See code: [src/commands/pool/metrics/publish.ts](https://github.com/flxbl-io/sfp/blob/v37.0.1/src/commands/pool/metrics/publish.ts)_
 
 ## `@flxbl-io/sfp pool org delete`
 
@@ -149,11 +149,11 @@ Deletes a particular scratch org in the pool, This command is to be used in a pi
 
 ```
 USAGE
-  $ @flxbl-io/sfp pool org delete -u <value> -v <value> [--apiversion <value>] [--loglevel
+  $ @flxbl-io/sfp pool org delete -o <value> -v <value> [--apiversion <value>] [--loglevel
     trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 FLAGS
-  -u, --targetusername=<value>        (required) Username or alias of the target org.
+  -o, --targetusername=<value>        (required) Username or alias of the target org.
   -v, --targetdevhubusername=<value>  (required) Username or alias of the Dev Hub org.
       --apiversion=<value>            Override the api version used for api requests made by this command
       --loglevel=<option>             [default: info] logging level for this command invocation
@@ -164,10 +164,10 @@ DESCRIPTION
   delete any active scratch org record or to be used by an adminsitrator
 
 EXAMPLES
-  $ sfp pool:org:delete -u test-xasdasd@example.com -v devhub
+  $ sfp pool:org:delete -o test-xasdasd@example.com -v devhub
 ```
 
-_See code: [src/commands/pool/org/delete.ts](https://github.com/flxbl-io/sfp)_
+_See code: [src/commands/pool/org/delete.ts](https://github.com/flxbl-io/sfp/blob/v37.0.1/src/commands/pool/org/delete.ts)_
 
 ## `@flxbl-io/sfp pool prepare`
 
@@ -204,4 +204,4 @@ EXAMPLES
   $ sfp prepare -f config/mypoolconfig.json  -v <devhub>
 ```
 
-_See code: [src/commands/pool/prepare.ts](https://github.com/flxbl-io/sfp)_
+_See code: [src/commands/pool/prepare.ts](https://github.com/flxbl-io/sfp/blob/v37.0.1/src/commands/pool/prepare.ts)_

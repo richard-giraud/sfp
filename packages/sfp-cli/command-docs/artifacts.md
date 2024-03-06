@@ -1,11 +1,11 @@
 `@flxbl-io/sfp artifacts`
-========================
+=========================
 
 Manage artifacts for a project
 
-* [`@flxbl-io/sfp artifacts fetch`](#flxbliosfp-artifacts-fetch)
-* [`@flxbl-io/sfp artifacts promote`](#flxbliosfp-artifacts-promote)
-* [`@flxbl-io/sfp artifacts query`](#flxbliosfp-artifacts-query)
+* [`@flxbl-io/sfp artifacts fetch`](#flxbl-iosfp-artifacts-fetch)
+* [`@flxbl-io/sfp artifacts promote`](#flxbl-iosfp-artifacts-promote)
+* [`@flxbl-io/sfp artifacts query`](#flxbl-iosfp-artifacts-query)
 
 ## `@flxbl-io/sfp artifacts fetch`
 
@@ -37,7 +37,7 @@ EXAMPLES
   $ sfp artifacts:fetch -p myreleasedefinition.yaml --npm --scope myscope --npmrcpath path/to/.npmrc
 ```
 
-_See code: [src/commands/artifacts/fetch.ts](https://github.com/flxbl-io/sfp)_
+_See code: [src/commands/artifacts/fetch.ts](https://github.com/flxbl-io/sfp/blob/v37.0.1/src/commands/artifacts/fetch.ts)_
 
 ## `@flxbl-io/sfp artifacts promote`
 
@@ -64,7 +64,7 @@ EXAMPLES
   $ sfp promote -d path/to/artifacts -v <org>
 ```
 
-_See code: [src/commands/artifacts/promote.ts](https://github.com/flxbl-io/sfp)_
+_See code: [src/commands/artifacts/promote.ts](https://github.com/flxbl-io/sfp/blob/v37.0.1/src/commands/artifacts/promote.ts)_
 
 ## `@flxbl-io/sfp artifacts query`
 
@@ -72,11 +72,11 @@ Fetch details about artifacts installed in a target org
 
 ```
 USAGE
-  $ @flxbl-io/sfp artifacts query -u <value> [--json] [--loglevel
+  $ @flxbl-io/sfp artifacts query -o <value> [--json] [--loglevel
     trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 FLAGS
-  -u, --targetusername=<value>  (required) Username or alias of the target org.
+  -o, --targetusername=<value>  (required) Username or alias of the target org.
       --loglevel=<option>       [default: info] logging level for this command invocation
                                 <options: trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL>
 
@@ -87,7 +87,7 @@ DESCRIPTION
   Fetch details about artifacts installed in a target org
 
 EXAMPLES
-  $ sfp artifacts:query -u <target_org>
+  $ sfp artifacts:query -o <target_org>
 ```
 
-_See code: [src/commands/artifacts/query.ts](https://github.com/flxbl-io/sfp)_
+_See code: [src/commands/artifacts/query.ts](https://github.com/flxbl-io/sfp/blob/v37.0.1/src/commands/artifacts/query.ts)_
