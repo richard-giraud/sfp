@@ -1,17 +1,17 @@
-`@flxblio/sfp quickbuild`
+`@flxbl-io/sfp quickbuild`
 =========================
 
 Build artifact(s) of your packages in the current project without dependency validation for unlocked packages
 
-* [`@flxblio/sfp quickbuild`](#flxbliosfp-quickbuild)
+* [`@flxbl-io/sfp quickbuild`](#flxbliosfp-quickbuild)
 
-## `@flxblio/sfp quickbuild`
+## `@flxbl-io/sfp quickbuild`
 
 Build artifact(s) of your packages in the current project without dependency validation for unlocked packages
 
 ```
 USAGE
-  $ @flxblio/sfp quickbuild -v <value> --branch <value> [--loglevel
+  $ @flxbl-io/sfp quickbuild -v <value> --branch <value> [--loglevel
     trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL] [--apiversion <value>] [--diffcheck] [-p
     <value>] [-r <value>] [-f <value>] [--artifactdir <value>] [--waittime <value>] [--buildnumber <value>]
     [--executorcount <value>] [--tag <value>] [--releaseconfig <value>]
@@ -41,7 +41,7 @@ DESCRIPTION
   Build artifact(s) of your packages in the current project without dependency validation for unlocked packages
 
 ALIASES
-  $ @flxblio/sfp orchestrator quickbuild
+  $ @flxbl-io/sfp orchestrator quickbuild
 ```
 
 _See code: [src/commands/quickbuild.ts](https://github.com/flxbl-io/sfp)_

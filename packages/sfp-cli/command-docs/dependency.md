@@ -1,19 +1,19 @@
-`@flxblio/sfp dependency`
+`@flxbl-io/sfp dependency`
 =========================
 
 Manage the dependencies of a project
 
-* [`@flxblio/sfp dependency expand`](#flxbliosfp-dependency-expand)
-* [`@flxblio/sfp dependency install`](#flxbliosfp-dependency-install)
-* [`@flxblio/sfp dependency shrink`](#flxbliosfp-dependency-shrink)
+* [`@flxbl-io/sfp dependency expand`](#flxbliosfp-dependency-expand)
+* [`@flxbl-io/sfp dependency install`](#flxbliosfp-dependency-install)
+* [`@flxbl-io/sfp dependency shrink`](#flxbliosfp-dependency-shrink)
 
-## `@flxblio/sfp dependency expand`
+## `@flxbl-io/sfp dependency expand`
 
 Expand the dependency list in sfdx-project.json file for each package, fix the gap of dependencies from its dependent packages
 
 ```
 USAGE
-  $ @flxblio/sfp dependency expand -v <value> [-o] [--loglevel
+  $ @flxbl-io/sfp dependency expand -v <value> [-o] [--loglevel
     trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 FLAGS
@@ -29,13 +29,13 @@ DESCRIPTION
 
 _See code: [src/commands/dependency/expand.ts](https://github.com/flxbl-io/sfp)_
 
-## `@flxblio/sfp dependency install`
+## `@flxbl-io/sfp dependency install`
 
 Install all the external dependencies of a given project
 
 ```
 USAGE
-  $ @flxblio/sfp dependency install -u <value> -v <value> [-k <value>] [--loglevel
+  $ @flxbl-io/sfp dependency install -u <value> -v <value> [-k <value>] [--loglevel
     trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 FLAGS
@@ -52,13 +52,13 @@ DESCRIPTION
 
 _See code: [src/commands/dependency/install.ts](https://github.com/flxbl-io/sfp)_
 
-## `@flxblio/sfp dependency shrink`
+## `@flxbl-io/sfp dependency shrink`
 
 Shrink the dependency list in sfdx-project.json file for each package, remove duplicate dependencies that already exist in its dependent packages
 
 ```
 USAGE
-  $ @flxblio/sfp dependency shrink -v <value> [-o] [--loglevel
+  $ @flxbl-io/sfp dependency shrink -v <value> [-o] [--loglevel
     trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 FLAGS

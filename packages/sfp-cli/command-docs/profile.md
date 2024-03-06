@@ -1,19 +1,19 @@
-`@flxblio/sfp profile`
+`@flxbl-io/sfp profile`
 ======================
 
 Commands to manage profiles in your project or org
 
-* [`@flxblio/sfp profile merge`](#flxbliosfp-profile-merge)
-* [`@flxblio/sfp profile reconcile`](#flxbliosfp-profile-reconcile)
-* [`@flxblio/sfp profile retrieve`](#flxbliosfp-profile-retrieve)
+* [`@flxbl-io/sfp profile merge`](#flxbliosfp-profile-merge)
+* [`@flxbl-io/sfp profile reconcile`](#flxbliosfp-profile-reconcile)
+* [`@flxbl-io/sfp profile retrieve`](#flxbliosfp-profile-retrieve)
 
-## `@flxblio/sfp profile merge`
+## `@flxbl-io/sfp profile merge`
 
 Merge changes made in the profile directly in the org to the profile files in the local project
 
 ```
 USAGE
-  $ @flxblio/sfp profile merge -u <value> [-f <value>] [-n <value>] [-m <value>] [-d] [--apiversion <value>]
+  $ @flxbl-io/sfp profile merge -u <value> [-f <value>] [-n <value>] [-m <value>] [-d] [--apiversion <value>]
     [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 FLAGS
@@ -41,13 +41,13 @@ EXAMPLES
 
 _See code: [src/commands/profile/merge.ts](https://github.com/flxbl-io/sfp)_
 
-## `@flxblio/sfp profile reconcile`
+## `@flxbl-io/sfp profile reconcile`
 
 Reconcile profiles in the local directory only with the attributes that are available in the target org
 
 ```
 USAGE
-  $ @flxblio/sfp profile reconcile -u <value> [-f <value>] [-n <value>] [-d <value>] [-s] [--apiversion <value>]
+  $ @flxbl-io/sfp profile reconcile -u <value> [-f <value>] [-n <value>] [-d <value>] [-s] [--apiversion <value>]
     [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 FLAGS
@@ -79,13 +79,13 @@ EXAMPLES
 
 _See code: [src/commands/profile/reconcile.ts](https://github.com/flxbl-io/sfp)_
 
-## `@flxblio/sfp profile retrieve`
+## `@flxbl-io/sfp profile retrieve`
 
 Retrieve profiles from the salesforce org with all its associated permissions. Common use case for this command is  to migrate profile changes from a integration environment to other higher environments [overcomes SFDX CLI Profile retrieve issue where it doesnt fetch the full profile unless the entire metadata is present in source], or retrieving profiles from production to lower environments for testing.
 
 ```
 USAGE
-  $ @flxblio/sfp profile retrieve -u <value> [-f <value>] [-n <value>] [-d] [--apiversion <value>] [--loglevel
+  $ @flxbl-io/sfp profile retrieve -u <value> [-f <value>] [-n <value>] [-d] [--apiversion <value>] [--loglevel
     trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 FLAGS

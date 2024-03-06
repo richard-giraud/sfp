@@ -1,5 +1,5 @@
 {
-    "name": "@flxblio/forcemula",
+    "name": "@flxbl-io/forcemula",
     "version": "1.0.1",
     "description": "Extract fields from Salesforce formulas",
     "main": "src/index.js",

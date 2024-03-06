@@ -1,19 +1,19 @@
-`@flxblio/sfp artifacts`
+`@flxbl-io/sfp artifacts`
 ========================
 
 Manage artifacts for a project
 
-* [`@flxblio/sfp artifacts fetch`](#flxbliosfp-artifacts-fetch)
-* [`@flxblio/sfp artifacts promote`](#flxbliosfp-artifacts-promote)
-* [`@flxblio/sfp artifacts query`](#flxbliosfp-artifacts-query)
+* [`@flxbl-io/sfp artifacts fetch`](#flxbliosfp-artifacts-fetch)
+* [`@flxbl-io/sfp artifacts promote`](#flxbliosfp-artifacts-promote)
+* [`@flxbl-io/sfp artifacts query`](#flxbliosfp-artifacts-query)
 
-## `@flxblio/sfp artifacts fetch`
+## `@flxbl-io/sfp artifacts fetch`
 
 Fetch sfp artifacts from a NPM compatible registry using a release definition file
 
 ```
 USAGE
-  $ @flxblio/sfp artifacts fetch -d <value> [-p <value>] [--scope <value> [--npm | -f <value>]] [--npmrcpath <value>
+  $ @flxbl-io/sfp artifacts fetch -d <value> [-p <value>] [--scope <value> [--npm | -f <value>]] [--npmrcpath <value>
     ] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 FLAGS
@@ -39,13 +39,13 @@ EXAMPLES
 
 _See code: [src/commands/artifacts/fetch.ts](https://github.com/flxbl-io/sfp)_
 
-## `@flxblio/sfp artifacts promote`
+## `@flxbl-io/sfp artifacts promote`
 
 Promotes artifacts predominantly for unlocked packages with code coverage greater than 75%
 
 ```
 USAGE
-  $ @flxblio/sfp artifacts promote -v <value> -d <value> [--loglevel
+  $ @flxbl-io/sfp artifacts promote -v <value> -d <value> [--loglevel
     trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 FLAGS
@@ -58,7 +58,7 @@ DESCRIPTION
   Promotes artifacts predominantly for unlocked packages with code coverage greater than 75%
 
 ALIASES
-  $ @flxblio/sfp orchestrator promote
+  $ @flxbl-io/sfp orchestrator promote
 
 EXAMPLES
   $ sfp promote -d path/to/artifacts -v <org>
@@ -66,13 +66,13 @@ EXAMPLES
 
 _See code: [src/commands/artifacts/promote.ts](https://github.com/flxbl-io/sfp)_
 
-## `@flxblio/sfp artifacts query`
+## `@flxbl-io/sfp artifacts query`
 
 Fetch details about artifacts installed in a target org
 
 ```
 USAGE
-  $ @flxblio/sfp artifacts query -u <value> [--json] [--loglevel
+  $ @flxbl-io/sfp artifacts query -u <value> [--json] [--loglevel
     trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 FLAGS

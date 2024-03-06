@@ -1,17 +1,17 @@
-`@flxblio/sfp commands`
+`@flxbl-io/sfp commands`
 =======================
 
 list all the commands
 
-* [`@flxblio/sfp commands`](#flxbliosfp-commands)
+* [`@flxbl-io/sfp commands`](#flxbliosfp-commands)
 
-## `@flxblio/sfp commands`
+## `@flxbl-io/sfp commands`
 
 list all the commands
 
 ```
 USAGE
-  $ @flxblio/sfp commands [--json] [-h] [--hidden] [--tree] [--columns <value> | -x] [--filter <value>]
+  $ @flxbl-io/sfp commands [--json] [-h] [--hidden] [--tree] [--columns <value> | -x] [--filter <value>]
     [--no-header | [--csv | --no-truncate]] [--output csv|json|yaml |  | ] [--sort <value>]
 
 FLAGS

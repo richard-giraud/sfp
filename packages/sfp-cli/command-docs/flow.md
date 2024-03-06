@@ -1,19 +1,19 @@
-`@flxblio/sfp flow`
+`@flxbl-io/sfp flow`
 ===================
 
 Manage flows in your org
 
-* [`@flxblio/sfp flow activate`](#flxbliosfp-flow-activate)
-* [`@flxblio/sfp flow cleanup`](#flxbliosfp-flow-cleanup)
-* [`@flxblio/sfp flow deactivate`](#flxbliosfp-flow-deactivate)
+* [`@flxbl-io/sfp flow activate`](#flxbliosfp-flow-activate)
+* [`@flxbl-io/sfp flow cleanup`](#flxbliosfp-flow-cleanup)
+* [`@flxbl-io/sfp flow deactivate`](#flxbliosfp-flow-deactivate)
 
-## `@flxblio/sfp flow activate`
+## `@flxbl-io/sfp flow activate`
 
 Activate the flow on a target org
 
 ```
 USAGE
-  $ @flxblio/sfp flow activate -u <value> [-f <value>] [-p <value>] [--loglevel
+  $ @flxbl-io/sfp flow activate -u <value> [-f <value>] [-p <value>] [--loglevel
     trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 FLAGS
@@ -29,13 +29,13 @@ DESCRIPTION
 
 _See code: [src/commands/flow/activate.ts](https://github.com/flxbl-io/sfp)_
 
-## `@flxblio/sfp flow cleanup`
+## `@flxbl-io/sfp flow cleanup`
 
 Cleanup inactive flows on a target org
 
 ```
 USAGE
-  $ @flxblio/sfp flow cleanup -u <value> [-f <value>] [-p <value>] [--loglevel
+  $ @flxbl-io/sfp flow cleanup -u <value> [-f <value>] [-p <value>] [--loglevel
     trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 FLAGS
@@ -51,13 +51,13 @@ DESCRIPTION
 
 _See code: [src/commands/flow/cleanup.ts](https://github.com/flxbl-io/sfp)_
 
-## `@flxblio/sfp flow deactivate`
+## `@flxbl-io/sfp flow deactivate`
 
 Deactivate the flow on a target org
 
 ```
 USAGE
-  $ @flxblio/sfp flow deactivate -u <value> [-f <value>] [-p <value>] [--loglevel
+  $ @flxbl-io/sfp flow deactivate -u <value> [-f <value>] [-p <value>] [--loglevel
     trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 FLAGS

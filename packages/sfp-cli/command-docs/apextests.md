@@ -1,17 +1,17 @@
-`@flxblio/sfp apextests`
+`@flxbl-io/sfp apextests`
 ========================
 
 Manage apex tests in a package or a org
 
-* [`@flxblio/sfp apextests trigger`](#flxbliosfp-apextests-trigger)
+* [`@flxbl-io/sfp apextests trigger`](#flxbliosfp-apextests-trigger)
 
-## `@flxblio/sfp apextests trigger`
+## `@flxbl-io/sfp apextests trigger`
 
 Triggers Apex unit test in an org. Supports test level RunAllTestsInPackage, which optionally allows validation of individual class code coverage
 
 ```
 USAGE
-  $ @flxblio/sfp apextests trigger -u <value> [--loglevel
+  $ @flxbl-io/sfp apextests trigger -u <value> [--loglevel
     trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL] [--apiversion <value>] [-l
     RunSpecifiedTests|RunApexTestSuite|RunLocalTests|RunAllTestsInOrg|RunAllTestsInPackage] [-n <value>] [-c]
     [--validatepackagecoverage] [--specifiedtests <value>] [--apextestsuite <value>] [-p <value>] [-w <value>]

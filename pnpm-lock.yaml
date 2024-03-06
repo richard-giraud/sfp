@@ -62,10 +62,10 @@ importers:
 
     packages/apexlink:
         dependencies:
-            '@flxblio/sfdx-process-wrapper':
+            '@flxbl-io/sfdx-process-wrapper':
                 specifier: ^1.0.3
                 version: link:../sfdx-process-wrapper
-            '@flxblio/sfp-logger':
+            '@flxbl-io/sfp-logger':
                 specifier: ^2.1.3
                 version: link:../sfplogger
             find-java-home:
@@ -108,7 +108,7 @@ importers:
 
     packages/sfdx-process-wrapper:
         dependencies:
-            '@flxblio/sfp-logger':
+            '@flxbl-io/sfp-logger':
                 specifier: ^2.1.3
                 version: link:../sfplogger
             fs-extra:
@@ -127,16 +127,16 @@ importers:
 
     packages/sfp-cli:
         dependencies:
-            '@flxblio/apexlink':
+            '@flxbl-io/apexlink':
                 specifier: ^2.0.0
                 version: link:../apexlink
-            '@flxblio/sfdx-process-wrapper':
+            '@flxbl-io/sfdx-process-wrapper':
                 specifier: ^1.0.3
                 version: link:../sfdx-process-wrapper
-            '@flxblio/sfp-logger':
+            '@flxbl-io/sfp-logger':
                 specifier: ^2.1.3
                 version: link:../sfplogger
-            '@flxblio/sfprofiles':
+            '@flxbl-io/sfprofiles':
                 specifier: ^3.1.0
                 version: link:../sfprofiles
             '@newrelic/telemetry-sdk':
@@ -345,7 +345,7 @@ importers:
 
     packages/sfprofiles:
         dependencies:
-            '@flxblio/sfp-logger':
+            '@flxbl-io/sfp-logger':
                 specifier: ^2.1.3
                 version: link:../sfplogger
             '@salesforce/core':

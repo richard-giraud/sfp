@@ -1,17 +1,17 @@
-`@flxblio/sfp metrics`
+`@flxbl-io/sfp metrics`
 ======================
 
 Report metrics to sfp supported metric providers
 
-* [`@flxblio/sfp metrics report`](#flxbliosfp-metrics-report)
+* [`@flxbl-io/sfp metrics report`](#flxbliosfp-metrics-report)
 
-## `@flxblio/sfp metrics report`
+## `@flxbl-io/sfp metrics report`
 
 Report a custom metric to any sfp supported metric provider
 
 ```
 USAGE
-  $ @flxblio/sfp metrics report -m <value> -t gauge|counter|timer [-v <value>] [-g <value>] [--loglevel
+  $ @flxbl-io/sfp metrics report -m <value> -t gauge|counter|timer [-v <value>] [-g <value>] [--loglevel
     trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 FLAGS

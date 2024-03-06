@@ -1,17 +1,17 @@
-`@flxblio/sfp install`
+`@flxbl-io/sfp install`
 ======================
 
 Installs artifact(s) from a given directory to a target org
 
-* [`@flxblio/sfp install`](#flxbliosfp-install)
+* [`@flxbl-io/sfp install`](#flxbliosfp-install)
 
-## `@flxblio/sfp install`
+## `@flxbl-io/sfp install`
 
 Installs artifact(s) from a given directory to a target org
 
 ```
 USAGE
-  $ @flxblio/sfp install -u <value> [--artifactdir <value>] [--waittime <value>] [-t <value>] [-b <value>
+  $ @flxbl-io/sfp install -u <value> [--artifactdir <value>] [--waittime <value>] [-t <value>] [-b <value>
     --skipifalreadyed] [--releaseconfig <value>] [--enablesourcetracking] [-g <value>] [--loglevel
     trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
@@ -34,8 +34,8 @@ DESCRIPTION
   Installs artifact(s) from a given directory to a target org
 
 ALIASES
-  $ @flxblio/sfp orchestrator deploy
-  $ @flxblio/sfp deploy
+  $ @flxbl-io/sfp orchestrator deploy
+  $ @flxbl-io/sfp deploy
 
 EXAMPLES
   $ sfp install -u <username>

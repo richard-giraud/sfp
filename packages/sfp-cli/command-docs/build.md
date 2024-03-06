@@ -1,17 +1,17 @@
-`@flxblio/sfp build`
+`@flxbl-io/sfp build`
 ====================
 
 Build artifact(s) of your packages in the current project
 
-* [`@flxblio/sfp build`](#flxbliosfp-build)
+* [`@flxbl-io/sfp build`](#flxbliosfp-build)
 
-## `@flxblio/sfp build`
+## `@flxbl-io/sfp build`
 
 Build artifact(s) of your packages in the current project
 
 ```
 USAGE
-  $ @flxblio/sfp build -v <value> --branch <value> [--loglevel
+  $ @flxbl-io/sfp build -v <value> --branch <value> [--loglevel
     trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL] [--apiversion <value>] [--diffcheck] [-p
     <value>] [-r <value>] [-f <value>] [--artifactdir <value>] [--waittime <value>] [--number <value>] [--executorcount
     <value>] [--tag <value>] [--releaseconfig <value>]
@@ -41,7 +41,7 @@ DESCRIPTION
   Build artifact(s) of your packages in the current project
 
 ALIASES
-  $ @flxblio/sfp orchestrator build
+  $ @flxbl-io/sfp orchestrator build
 ```
 
 _See code: [src/commands/build.ts](https://github.com/flxbl-io/sfp)_

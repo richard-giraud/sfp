@@ -1,17 +1,17 @@
-`@flxblio/sfp repo`
+`@flxbl-io/sfp repo`
 ===================
 
 Manage your project repository
 
-* [`@flxblio/sfp repo patch`](#flxbliosfp-repo-patch)
+* [`@flxbl-io/sfp repo patch`](#flxbliosfp-repo-patch)
 
-## `@flxblio/sfp repo patch`
+## `@flxbl-io/sfp repo patch`
 
 Generate a dynamic branch with the packages patched to the contents as mentioned in the release config file
 
 ```
 USAGE
-  $ @flxblio/sfp repo patch -p <value> -s <value> -t <value> [--scope <value> [--npm | -f <value>]] [--npmrcpath
+  $ @flxbl-io/sfp repo patch -p <value> -s <value> -t <value> [--scope <value> [--npm | -f <value>]] [--npmrcpath
     <value> ] [-g <value>] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 FLAGS
