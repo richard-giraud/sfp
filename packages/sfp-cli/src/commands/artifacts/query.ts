@@ -12,7 +12,7 @@ const messages = Messages.loadMessages('@flxblio/sfp', 'artifacts_query');
 export default class Query extends SfpCommand {
     public static description = messages.getMessage('commandDescription');
 
-    public static examples = [`$ sfp artifacts:query -u <target_org>`];
+    public static examples = [`$ sfp artifacts:query -o <target_org>`];
     public static enableJsonFlag = true
     protected static requiresUsername = true;
     protected static requiresDevhubUsername = false;

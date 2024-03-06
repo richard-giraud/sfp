@@ -43,12 +43,6 @@ export default class GenerateChangelog extends SfpCommand {
             required: false,
             description: messages.getMessage('workItemUrlFlagDescription'),
         }),
-        repourl: Flags.string({
-            required: false,
-            char: 'r',
-            description: messages.getMessage('repoUrlFlagDescription'),
-            deprecated: {message:'--repourl has been deprecated'}
-        }),
         directory: Flags.string({
             required: false,
             description: messages.getMessage('directoryFlagDescription'),

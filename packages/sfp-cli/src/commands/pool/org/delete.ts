@@ -24,7 +24,7 @@ export default class Delete extends SfpCommand {
 
     protected static requiresDevhubUsername = true;
 
-    public static examples = [`$ sfp pool:org:delete -u test-xasdasd@example.com -v devhub`];
+    public static examples = [`$ sfp pool:org:delete -o test-xasdasd@example.com -v devhub`];
 
     public static flags = {
         apiversion: orgApiVersionFlagSfdxStyle,

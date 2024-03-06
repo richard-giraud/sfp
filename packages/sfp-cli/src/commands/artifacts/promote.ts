@@ -31,15 +31,6 @@ export default class Promote extends SfpCommand {
             description: messages.getMessage('artifactDirectoryFlagDescription'),
             default: 'artifacts',
         }),
-        outputdir: Flags.directory({
-            required: false,
-            char: 'o',
-            description: messages.getMessage('outputDirectoryFlagDescription'),
-            hidden: true,
-            deprecated: {
-                message: '--outputdir is deprecated, Artifacts are no longer modified after promote',
-            },
-        }),
        loglevel
     };
 

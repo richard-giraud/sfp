@@ -31,8 +31,8 @@ export default class TriggerApexTest extends SfpCommand {
     public static description = messages.getMessage('commandDescription');
 
     public static examples = [
-        `$ sfp apextests:trigger -u scratchorg -l RunLocalTests -s`,
-        `$ sfp apextests:trigger -u scratchorg -l RunAllTestsInPackage -n <mypackage> -c`,
+        `$ sfp apextests:trigger -o scratchorg -l RunLocalTests -s`,
+        `$ sfp apextests:trigger -o scratchorg -l RunAllTestsInPackage -n <mypackage> -c`,
     ];
 
     public static flags = {

@@ -17,7 +17,7 @@ export default class ValidateAgainstOrg extends SfpCommand {
     static aliases = ['orchestrator:validateagainstorg', 'validateagainstorg']
     public static description = messages.getMessage('commandDescription');
 
-    public static examples = [`$ sfp validateAgainstOrg -u <targetorg>`];
+    public static examples = [`$ sfp validate org  -o <targetorg>`];
 
     public static flags = {
         targetorg: requiredUserNameFlag,

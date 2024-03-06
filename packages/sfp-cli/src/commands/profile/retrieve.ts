@@ -18,9 +18,9 @@ export default class Retrieve extends SfpCommand {
     public static description = messages.getMessage('commandDescription');
 
     public static examples = [
-        `$ sfp profile:retrieve -u prod`,
-        `$ sfp profile:retrieve -f force-app -n "My Profile" -u prod`,
-        `$ sfp profile:retrieve -f "module1, module2, module3" -n "My Profile1, My profile2"  -u prod`,
+        `$ sfp profile:retrieve -o prod`,
+        `$ sfp profile:retrieve -f force-app -n "My Profile" -o prod`,
+        `$ sfp profile:retrieve -f "module1, module2, module3" -n "My Profile1, My profile2"  -o prod`,
     ];
 
 

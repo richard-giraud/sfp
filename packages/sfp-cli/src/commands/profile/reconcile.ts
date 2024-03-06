@@ -22,8 +22,8 @@ export default class Reconcile extends SfpCommand {
 
     public static examples = [
         `$ sfp profile:reconcile  --folder force-app -d destfolder -s`,
-        `$ sfp profile:reconcile  --folder force-app,module2,module3 -u sandbox -d destfolder`,
-        `$ sfp profile:reconcile  -u myscratchorg -d destfolder`,
+        `$ sfp profile:reconcile  --folder force-app,module2,module3 -o sandbox -d destfolder`,
+        `$ sfp profile:reconcile  -o myscratchorg -d destfolder`,
     ];
 
 

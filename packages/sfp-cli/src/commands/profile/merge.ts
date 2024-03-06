@@ -18,7 +18,7 @@ export default class Merge extends SfpCommand {
     public static description = messages.getMessage('commandDescription');
 
     public static examples = [
-        `$ sfp profile:merge -u sandbox`,
+        `$ sfp profile:merge -o sandbox`,
         `$ sfp profile:merge -f force-app -n "My Profile" -u sandbox`,
         `$ sfp  profile:merge -f "module1, module2, module3" -n "My Profile1, My profile2"  -u sandbox`,
     ];
