@@ -112,6 +112,9 @@
             "pool": {
                 "description": "Build and manage scratch org or sandbox pools"
             },
+            "validate": {
+                "description": " Validate a change in your project repository"
+            },
             "changelog": {
                 "description": "Track your artifacts & user stories as they progress through different environments, with release changelogs"
             },
@@ -166,6 +169,7 @@
     },
     "scripts": {
         "build": "pnpm run clean && pnpm run compile",
+        "docs" : "oclif readme --no-aliases --multi --dir=docs --repository-prefix https://github.com/flxbl-io/sfp",
         "manifest": "oclif manifest",
         "clean": "rimraf ./lib && rimraf tsconfig.tsbuildinfo",
         "compile": "tsc -b tsconfig.json",
