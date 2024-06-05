@@ -4,7 +4,7 @@
     "version": "38.4.1",
     "license": "MIT",
     "author": "flxblio",
-    "release": "gi 24",
+    "release": "June 24",
     "bin": {
         "sfp": "./bin/run",
         "sfpowerscripts": "./bin/run"
