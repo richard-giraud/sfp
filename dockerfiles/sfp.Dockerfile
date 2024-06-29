@@ -2,7 +2,7 @@ FROM ubuntu:22.04
 
 
 ARG SFPOWERSCRIPTS_VERSION=alpha
-ARG SF_CLI_VERSION=2.25.7 
+ARG SF_CLI_VERSION=2.46.6
 ARG BROWSERFORCE_VERSION=4.0.0
 ARG SFDMU_VERSION=4.32.2
 ARG GIT_COMMIT
@@ -15,7 +15,7 @@ LABEL org.opencontainers.image.documentation "https://docs.flxbl.io/sfp"
 LABEL org.opencontainers.image.revision $GIT_COMMIT
 LABEL org.opencontainers.image.vendor "Flxbl"
 LABEL org.opencontainers.image.source "https://github.com/flxbl-io/sfp"
-LABEL org.opencontainers.image.title "Flxbl sfp docker image - April 24"
+LABEL org.opencontainers.image.title "Flxbl sfp docker image - June 24"
 
 
 ENV DEBIAN_FRONTEND=noninteractive
