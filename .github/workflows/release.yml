@@ -102,6 +102,7 @@ jobs:
   sfp-alpha:
     name: 'sfp alpha'
     uses: ./.github/workflows/promotePackage.yml
+    if: ${{ needs.release-please.outputs.continue == 'true' || github.event_name == 'workflow_dispatch' }}
     with:
       version: 'alpha'
       pathToPackageJson: 'package.json'
@@ -141,6 +142,7 @@ jobs:
   sfp-beta:
     name: 'sfp beta'
     uses: ./.github/workflows/promotePackage.yml
+    if: ${{ needs.release-please.outputs.continue == 'true' || github.event_name == 'workflow_dispatch' }}
     with:
       version: 'beta'
       pathToPackageJson: 'package.json'
@@ -182,6 +184,7 @@ jobs:
   sfp-prod:
     name: 'sfp prod'
     uses: ./.github/workflows/promotePackage.yml
+    if: ${{ needs.release-please.outputs.continue == 'true' || github.event_name == 'workflow_dispatch' }}
     with:
       version: 'latest'
       pathToPackageJson: 'package.json'
