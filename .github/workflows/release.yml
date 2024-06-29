@@ -56,7 +56,7 @@ jobs:
           config-file: release-please-config.json
       - run: |
           npm i
-          npm publish
+          npm publish --tag next
         name: Publish packages
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
