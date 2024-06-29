@@ -13,4 +13,4 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-ENTRYPOINT ["sh", "-c"]
+ENTRYPOINT ["./bin/run"]
