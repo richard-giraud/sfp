@@ -34,8 +34,10 @@ jobs:
       continue: ${{ steps.release.outputs.releases_created }}
       released_version: ${{ steps.release.outputs.major || steps.release.outputs.minor || steps.release.outputs.patch }}
     permissions:
-      contents: write # to create release commit (google-github-actions/release-please-action)
+      contents: write
       packages: write
+      pull-requests: write
+      repository-projects: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
