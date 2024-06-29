@@ -29,21 +29,41 @@ on:
 
 # Merge to Develop, create builds   
 jobs: 
-  build:
-    name: 'build packages'
-    uses: ./.github/workflows/buildPackages.yml
-    with:
-      version: ${{ github.ref }}
-      publish: true
-      environment: build
-    secrets:
-      npm-token: ${{ secrets.NPM_TOKEN }}
+  release-please:
+    outputs:
+      continue: ${{ steps.release.outputs.releases_created }}
+      released_version: ${{ steps.release.outputs.major || steps.release.outputs.minor || steps.release.outputs.patch }}
+    permissions:
+      contents: write # to create release commit (google-github-actions/release-please-action)
+      packages: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          token: ${{ secrets.NPM_TOKEN }}
+          registry-url: 'https://registry.npmjs.org'
+
+      - uses: google-github-actions/release-please-action@v4
+        id: release
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          config-file: release-please-config.json
+      - run: |
+          npm i
+          npm publish
+        name: Publish packages
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        if: ${{ steps.release.outputs.releases_created == 'true'}}
 
 
  # On successfull creation of packages,(or even if lerna skips), create docker image
   build-docker:
     name: 'build docker image'
     uses: ./.github/workflows/sfp-build-docker.yml
+    if: ${{ needs.release-please.outputs.continue == 'true' || github.event_name == 'workflow_dispatch' }}
     with:
       job-environment: 'build-docker'
       suffix-tag: ${{ github.run_id }}
@@ -52,11 +72,13 @@ jobs:
     secrets:
       username: ${{ secrets.DOCKER_USERNAME }}
       token: ${{ secrets.GITHUB_TOKEN }}
-    needs: [ build ]
+    needs: 
+      - release-please
   
   build-docker-lite:
     name: 'build sfp lite docker image'
     uses: ./.github/workflows/sfp-build-docker.yml
+    if: ${{ needs.release-please.outputs.continue == 'true' || github.event_name == 'workflow_dispatch' }}
     with:
       job-environment: 'build-docker'
       suffix-tag: ${{ github.run_id }}
@@ -66,7 +88,8 @@ jobs:
     secrets:
       username: ${{ secrets.DOCKER_USERNAME }}
       token: ${{ secrets.GITHUB_TOKEN }}
-    needs: [ build ]
+    needs: 
+      - release-please
 
  #Promotion Stages
 
@@ -77,11 +100,12 @@ jobs:
     uses: ./.github/workflows/promotePackage.yml
     with:
       version: 'alpha'
-      pathToPackageJson: 'packages/sfp-cli/package.json'
+      pathToPackageJson: 'package.json'
       environment: sfp-alpha
     secrets:
       npm-token: ${{ secrets.NPM_TOKEN }}
-    needs: [ build ]
+    needs: 
+      - release-please
   
   alpha-docker:
     name: 'promote docker to alpha'
@@ -115,11 +139,12 @@ jobs:
     uses: ./.github/workflows/promotePackage.yml
     with:
       version: 'beta'
-      pathToPackageJson: 'packages/sfp-cli/package.json'
+      pathToPackageJson: 'package.json'
       environment: sfp-beta
     secrets:
       npm-token: ${{ secrets.NPM_TOKEN }}
-    needs: [ build ]
+    needs: 
+      - release-please
   
   beta-docker:
     name: 'promote docker to beta'
@@ -155,11 +180,12 @@ jobs:
     uses: ./.github/workflows/promotePackage.yml
     with:
       version: 'latest'
-      pathToPackageJson: 'packages/sfp-cli/package.json'
+      pathToPackageJson: 'package.json'
       environment: sfp-prod
     secrets:
       npm-token: ${{ secrets.NPM_TOKEN }}
-    needs: [ build ]
+    needs: 
+      - release-please
   
   prod-docker:
     name: 'copy rc docker to prod'
