@@ -99,47 +99,6 @@ jobs:
  #Promotion Stages
 
 
-
-  sfp-alpha:
-    name: 'sfp alpha'
-    uses: ./.github/workflows/promotePackage.yml
-    if: ${{ needs.release-please.outputs.continue == 'true' || github.event_name == 'workflow_dispatch' }}
-    with:
-      version: 'alpha'
-      pathToPackageJson: 'package.json'
-      environment: sfp-alpha
-    secrets:
-      npm-token: ${{ secrets.NPM_TOKEN }}
-    needs: 
-      - release-please
-  
-  alpha-docker:
-    name: 'promote docker to alpha'
-    uses: ./.github/workflows/sfp-promote-docker.yml
-    with:
-      job-environment: 'sfp-alpha-docker'
-      repo: 'flxbl-io'
-      new-tag: alpha   
-      image: 'sfp-rc'  
-    secrets:
-      username: ${{ secrets.DOCKER_USERNAME }}
-      token: ${{ secrets.GITHUB_TOKEN }}
-    needs: [ build-docker ]
-
-  alpha-docker-lite:
-    name: 'promote docker lite to alpha'
-    uses: ./.github/workflows/sfp-promote-docker.yml
-    with:
-      job-environment: 'sfp-alpha-docker'
-      repo: 'flxbl-io'
-      new-tag: alpha   
-      image: 'sfp-lite-rc'  
-    secrets:
-      username: ${{ secrets.DOCKER_USERNAME }}
-      token: ${{ secrets.GITHUB_TOKEN }}
-    needs: [ build-docker-lite ]
-
-
   sfp-beta:
     name: 'sfp beta'
     uses: ./.github/workflows/promotePackage.yml
