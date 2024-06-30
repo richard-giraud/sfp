@@ -109,7 +109,7 @@ export default class SfpPackageBuilder {
             sfpPackage.isPermissionSetGroupFound = packageManifest.isPermissionSetGroupsFoundInPackage();
             sfpPackage.isPayLoadContainTypesSupportedByProfiles = packageManifest.isPayLoadContainTypesSupportedByProfiles();
 
-            let apexFetcher: ApexTypeFetcher = new ApexTypeFetcher(sfpPackage.mdapiDir);
+            let apexFetcher: ApexTypeFetcher = new ApexTypeFetcher(sfpPackage.resolvedPackageDirectory);
             sfpPackage.apexClassesSortedByTypes = apexFetcher.getClassesClassifiedByType();
             sfpPackage.apexTestClassses = apexFetcher.getTestClasses();
             sfpPackage.metadataCount = await MetadataCount.getMetadataCount(
