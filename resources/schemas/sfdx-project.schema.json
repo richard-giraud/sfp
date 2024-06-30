@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/flxbl-io/sfp/blob/develop/packages/sfp-cli/resources/sfdx-project.schema.json",
+    "$id": "https://github.com/flxbl-io/sfp/blob/main/resources/sfdx-project.schema.json",
     "title": "sfp DX Project File",
     "description": "The properties and shape of the SFDX project enhanced for sfp",
     "type": "object",
@@ -12,7 +12,7 @@
         "$schema": {
             "description": "Support editors like vscode to help with IntelliSense",
             "type": "string",
-            "default": "https://raw.githubusercontent.com/flxblio/sfp/main/packages/sfp-cli/resources/schemas/sfdx-project.schema.json"
+            "default": "https://raw.githubusercontent.com/flxblio/sfp/main/resources/schemas/sfdx-project.schema.json"
         },
         "packageDirectories": {
             "title": "Package Directories",
@@ -228,6 +228,11 @@
             "type": "string",
             "description": "The url that is used when creating new scratch orgs. This is typically only used for testing prerelease environments."
         },
+        "sourceBehaviorOptions": {
+            "$ref": "#/definitions/RegistryPresets",
+            "description": "filenames from https://github.com/forcedotcom/source-deploy-retrieve/tree/main/src/registry/presets",
+            "title": "Custom predefined presets for decomposing metadata types"
+        },
         "oauthLocalPort": {
             "type": "number",
             "description": "By default, the OAuth port is 1717. However, change this port if this port is already in use, and you plan to create a connected app in your Dev Hub org to support JWT-based authorization."
@@ -247,6 +252,9 @@
                 }
             }
         },
+        "registryCustomizations": {
+            "$ref": "#/definitions/MetadataRegistry"
+        },
         "packageAliases": {
             "title": "Aliases for packaging ids",
             "type": "object",
@@ -260,6 +268,507 @@
         }
     },
     "definitions": {
+        "MetadataRegistry": {
+            "additionalProperties": false,
+            "properties": {
+                "childTypes": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "type": "object"
+                },
+                "strictDirectoryNames": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "type": "object"
+                },
+                "suffixes": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "type": "object"
+                },
+                "types": {
+                    "additionalProperties": {
+                        "additionalProperties": false,
+                        "properties": {
+                            "aliasFor": {
+                                "type": "string"
+                            },
+                            "children": {
+                                "additionalProperties": false,
+                                "properties": {
+                                    "directories": {
+                                        "additionalProperties": {
+                                            "type": "string"
+                                        },
+                                        "type": "object"
+                                    },
+                                    "suffixes": {
+                                        "additionalProperties": {
+                                            "type": "string"
+                                        },
+                                        "type": "object"
+                                    },
+                                    "types": {
+                                        "$ref": "#/definitions/alias-147831185-257-1138-147831185-0-1202"
+                                    }
+                                },
+                                "required": ["types", "suffixes"],
+                                "type": "object"
+                            },
+                            "directoryName": {
+                                "type": "string"
+                            },
+                            "folderContentType": {
+                                "type": "string"
+                            },
+                            "folderType": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            },
+                            "ignoreParsedFullName": {
+                                "type": "boolean"
+                            },
+                            "isAddressable": {
+                                "type": "boolean"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "strategies": {
+                                "additionalProperties": false,
+                                "properties": {
+                                    "adapter": {
+                                        "enum": [
+                                            "mixedContent",
+                                            "matchingContentFile",
+                                            "decomposed",
+                                            "bundle",
+                                            "default"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "decomposition": {
+                                        "enum": ["topLevel", "folderPerType"],
+                                        "type": "string"
+                                    },
+                                    "transformer": {
+                                        "enum": ["decomposed", "staticResource", "standard"],
+                                        "type": "string"
+                                    }
+                                },
+                                "required": ["adapter"],
+                                "type": "object"
+                            },
+                            "strictDirectoryName": {
+                                "type": "boolean"
+                            },
+                            "suffix": {
+                                "type": "string"
+                            },
+                            "supportsPartialDelete": {
+                                "type": "boolean"
+                            },
+                            "supportsWildcardAndName": {
+                                "type": "boolean"
+                            },
+                            "unaddressableWithoutParent": {
+                                "type": "boolean"
+                            },
+                            "uniqueIdElement": {
+                                "type": "string"
+                            },
+                            "xmlElementName": {
+                                "type": "string"
+                            }
+                        },
+                        "required": ["id", "name", "directoryName"],
+                        "type": "object"
+                    },
+                    "type": "object"
+                }
+            },
+            "required": ["types", "suffixes", "strictDirectoryNames", "childTypes"],
+            "type": "object"
+        },
+        "RegistryPresets": {
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "Replacements": {
+            "anyOf": [
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "filename": {
+                            "type": "string"
+                        },
+                        "replaceWhenEnv": {
+                            "items": {
+                                "additionalProperties": false,
+                                "properties": {
+                                    "env": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": ["env", "value"],
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "replaceWithFile": {
+                            "type": "string"
+                        },
+                        "stringToReplace": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["filename", "replaceWithFile", "stringToReplace"],
+                    "type": "object"
+                },
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "allowUnsetEnvVariable": {
+                            "type": "boolean"
+                        },
+                        "filename": {
+                            "type": "string"
+                        },
+                        "replaceWhenEnv": {
+                            "items": {
+                                "additionalProperties": false,
+                                "properties": {
+                                    "env": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": ["env", "value"],
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "replaceWithEnv": {
+                            "type": "string"
+                        },
+                        "stringToReplace": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["filename", "replaceWithEnv", "stringToReplace"],
+                    "type": "object"
+                },
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "filename": {
+                            "type": "string"
+                        },
+                        "regexToReplace": {
+                            "type": "string"
+                        },
+                        "replaceWhenEnv": {
+                            "items": {
+                                "additionalProperties": false,
+                                "properties": {
+                                    "env": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": ["env", "value"],
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "replaceWithFile": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["filename", "regexToReplace", "replaceWithFile"],
+                    "type": "object"
+                },
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "allowUnsetEnvVariable": {
+                            "type": "boolean"
+                        },
+                        "filename": {
+                            "type": "string"
+                        },
+                        "regexToReplace": {
+                            "type": "string"
+                        },
+                        "replaceWhenEnv": {
+                            "items": {
+                                "additionalProperties": false,
+                                "properties": {
+                                    "env": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": ["env", "value"],
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "replaceWithEnv": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["filename", "regexToReplace", "replaceWithEnv"],
+                    "type": "object"
+                },
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "glob": {
+                            "type": "string"
+                        },
+                        "replaceWhenEnv": {
+                            "items": {
+                                "additionalProperties": false,
+                                "properties": {
+                                    "env": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": ["env", "value"],
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "replaceWithFile": {
+                            "type": "string"
+                        },
+                        "stringToReplace": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["glob", "replaceWithFile", "stringToReplace"],
+                    "type": "object"
+                },
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "allowUnsetEnvVariable": {
+                            "type": "boolean"
+                        },
+                        "glob": {
+                            "type": "string"
+                        },
+                        "replaceWhenEnv": {
+                            "items": {
+                                "additionalProperties": false,
+                                "properties": {
+                                    "env": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": ["env", "value"],
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "replaceWithEnv": {
+                            "type": "string"
+                        },
+                        "stringToReplace": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["glob", "replaceWithEnv", "stringToReplace"],
+                    "type": "object"
+                },
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "glob": {
+                            "type": "string"
+                        },
+                        "regexToReplace": {
+                            "type": "string"
+                        },
+                        "replaceWhenEnv": {
+                            "items": {
+                                "additionalProperties": false,
+                                "properties": {
+                                    "env": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": ["env", "value"],
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "replaceWithFile": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["glob", "regexToReplace", "replaceWithFile"],
+                    "type": "object"
+                },
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "allowUnsetEnvVariable": {
+                            "type": "boolean"
+                        },
+                        "glob": {
+                            "type": "string"
+                        },
+                        "regexToReplace": {
+                            "type": "string"
+                        },
+                        "replaceWhenEnv": {
+                            "items": {
+                                "additionalProperties": false,
+                                "properties": {
+                                    "env": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": ["env", "value"],
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "replaceWithEnv": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["glob", "regexToReplace", "replaceWithEnv"],
+                    "type": "object"
+                }
+            ]
+        },
+        "alias-147831185-257-1138-147831185-0-1202": {
+            "additionalProperties": {
+                "additionalProperties": false,
+                "properties": {
+                    "aliasFor": {
+                        "type": "string"
+                    },
+                    "children": {
+                        "additionalProperties": false,
+                        "properties": {
+                            "directories": {
+                                "additionalProperties": {
+                                    "type": "string"
+                                },
+                                "type": "object"
+                            },
+                            "suffixes": {
+                                "additionalProperties": {
+                                    "type": "string"
+                                },
+                                "type": "object"
+                            },
+                            "types": {
+                                "$ref": "#/definitions/alias-147831185-257-1138-147831185-0-1202"
+                            }
+                        },
+                        "required": ["types", "suffixes"],
+                        "type": "object"
+                    },
+                    "directoryName": {
+                        "type": "string"
+                    },
+                    "folderContentType": {
+                        "type": "string"
+                    },
+                    "folderType": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "ignoreParsedFullName": {
+                        "type": "boolean"
+                    },
+                    "isAddressable": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "strategies": {
+                        "additionalProperties": false,
+                        "properties": {
+                            "adapter": {
+                                "enum": ["mixedContent", "matchingContentFile", "decomposed", "bundle", "default"],
+                                "type": "string"
+                            },
+                            "decomposition": {
+                                "enum": ["topLevel", "folderPerType"],
+                                "type": "string"
+                            },
+                            "transformer": {
+                                "enum": ["decomposed", "staticResource", "standard"],
+                                "type": "string"
+                            }
+                        },
+                        "required": ["adapter"],
+                        "type": "object"
+                    },
+                    "strictDirectoryName": {
+                        "type": "boolean"
+                    },
+                    "suffix": {
+                        "type": "string"
+                    },
+                    "supportsPartialDelete": {
+                        "type": "boolean"
+                    },
+                    "supportsWildcardAndName": {
+                        "type": "boolean"
+                    },
+                    "unaddressableWithoutParent": {
+                        "type": "boolean"
+                    },
+                    "uniqueIdElement": {
+                        "type": "string"
+                    },
+                    "xmlElementName": {
+                        "type": "string"
+                    }
+                },
+                "required": ["id", "name", "directoryName"],
+                "type": "object"
+            },
+            "type": "object"
+        },
         "packageDirectory.path": {
             "type": "string",
             "description": "If you don’t specify a path, the Salesforce CLI uses a placeholder when you create a package."
@@ -350,7 +859,7 @@
                 "description": "The path name of the package directory containing the seed metadata"
               }
             }
-          },
+        },
         "packageDirectory.unpackagedMetadata": {
             "type": "object",
             "title": "Unpackaged Metadata",
