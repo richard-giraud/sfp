@@ -9,16 +9,16 @@ export default class ObjectCRUDHelper {
         return retry(
             async (bail) => {
                 let result = await conn.update(sObject, record);
-                // if (isArray(result)) {
-                //     let isAllRecordsSucceeded = true;
-                //     for (const individualResult of result as SaveResult[]) {
-                //         if (!individualResult.success) {
-                //             isAllRecordsSucceeded = false;
-                //         }
-                //     }
-                //     if (isAllRecordsSucceeded) return 'All records updated';
-                //     else throw new Error('Some records have been failed to update');
-                // } else
+                if (isArray(result)) {
+                    let isAllRecordsSucceeded = true;
+                    for (const individualResult of result as SaveResult[]) {
+                        if (!individualResult.success) {
+                            isAllRecordsSucceeded = false;
+                        }
+                    }
+                    if (isAllRecordsSucceeded) return 'All records updated';
+                    else throw new Error('Some records have been failed to update');
+                } else
                 if ((result as SaveResult).success) return (result as SaveResult).id;
                 else bail();
             },
