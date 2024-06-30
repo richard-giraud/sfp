@@ -35,7 +35,7 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}/sfp:review
+            ghcr.io/flxbl-io/sfp-rc:review
           build-args: |
             GIT_COMMIT==${{ github.event.inputs.commit_id }}
             SF_COMMIT_ID=${{ github.event.inputs.commit_id }}
