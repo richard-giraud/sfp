@@ -119,13 +119,14 @@ export type ArrayWithOptions = {
 export const arrayFlagSfdxStyle = Flags.custom<string[], ArrayWithOptions>({
   multiple: true,
   delimiter: ',',
+  // @ts-ignore
   parse: async (input, ctx) => {
     const inputParts = ctx.token.input.split(',').map((i) => i.trim());
     if (inputParts.length > 1) {
       await Lifecycle.getInstance().emitWarning(messages.getMessage('warning.arrayInputFormat'));
     }
 
-    return inputParts; // Return the array of input parts
+    return input; // Return the array of input parts
   },
 });
 
