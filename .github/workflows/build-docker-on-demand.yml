@@ -1,6 +1,9 @@
-name: Build sfp Docker Image
+name: Build sfp Docker Image (Review)
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       commit_id:
@@ -10,10 +13,10 @@ on:
 jobs:
   build-and-publish-docker:
     runs-on: ubuntu-latest
+    environment: dev
     permissions:
       contents: read
       packages: write
-
     steps:
       - uses: actions/checkout@v4
         with:
