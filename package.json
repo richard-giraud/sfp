@@ -18,7 +18,7 @@
     "@flxbl-io/apexlink": "^3.1.0",
     "@flxbl-io/sfdx-process-wrapper": "^2.0.1",
     "@flxbl-io/sfp-logger": "^3.0.1",
-    "@flxbl-io/sfprofiles": "^4.0.2",
+    "@flxbl-io/sfprofiles": "^5.0.0",
     "@jsforce/jsforce-node": "^3.2.0",
     "@newrelic/telemetry-sdk": "^0.6.0",
     "@oclif/core": "2.11.8",
