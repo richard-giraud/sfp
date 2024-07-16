@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@apexdevtools/apex-parser": "^4.0.0",
-    "@flxbl-io/apexlink": "3.1.2",
+    "@flxbl-io/apexlink": "3.2.1",
     "@flxbl-io/sfdx-process-wrapper": "^2.0.1",
     "@flxbl-io/sfp-logger": "^3.0.1",
     "@flxbl-io/sfprofiles": "^5.0.0",
