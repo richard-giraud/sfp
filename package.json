@@ -64,7 +64,8 @@
     "simple-git": "3.19.1",
     "tar": "^6.1.9",
     "tmp": "^0.2.1",
-    "xml2js": "^0.6.0"
+    "xml2js": "^0.6.0",
+    "git-up": "richard-giraud/git-up.git#fix/36-url-encoded-whitespace"
   },
   "devDependencies": {
     "@babel/core": "7.18.2",
@@ -96,7 +97,9 @@
     "typescript": "^5.4.5"
   },
   "overrides": {
-    "git-up": "git+https://github.com/richard-giraud/git-up.git#fix/36-url-encoded-whitespace"
+    "git-url-parse": {
+      "git-up": "$git-up"
+    }
   },
   "engines": {
     "node": ">=18.0.0"
