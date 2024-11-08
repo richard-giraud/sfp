@@ -95,6 +95,9 @@
     "ts-retry-promise": "0.8.1",
     "typescript": "^5.4.5"
   },
+  "overrides": {
+    "git-up": "git+https://github.com/richard-giraud/git-up.git#fix/36-url-encoded-whitespace"
+  },
   "engines": {
     "node": ">=18.0.0"
   },
