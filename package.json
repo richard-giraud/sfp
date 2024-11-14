@@ -44,7 +44,7 @@
     "dotenv": "16.3.1",
     "fast-xml-parser": "4.5.0",
     "fs-extra": "^11.1.1",
-    "git-url-parse": "14.0.0",
+    "git-url-parse": "RGENT/git-url-parse.git#fix/162-handle-ssh-with-url-encoded-spaces",
     "glob": "^10.3.3",
     "handlebars": "^4.7.7",
     "hot-shots": "^8.5.0",
@@ -64,8 +64,7 @@
     "simple-git": "3.19.1",
     "tar": "^6.1.9",
     "tmp": "^0.2.1",
-    "xml2js": "^0.6.0",
-    "git-up": "richard-giraud/git-up.git#fix/36-url-encoded-whitespace"
+    "xml2js": "^0.6.0"
   },
   "devDependencies": {
     "@babel/core": "7.18.2",
@@ -95,11 +94,6 @@
     "ts-patch": "^3.2.0",
     "ts-retry-promise": "0.8.1",
     "typescript": "^5.4.5"
-  },
-  "overrides": {
-    "git-url-parse": {
-      "git-up": "$git-up"
-    }
   },
   "engines": {
     "node": ">=18.0.0"
