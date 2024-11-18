@@ -15,8 +15,7 @@ describe('validateArtifactsSourceRepository', () => {
             sfpPackageInquirer.validateArtifactsSourceRepository();
         });
 
-        // TODO: re-enable once https://github.com/flxbl-io/sfp/issues/137 is fixed
-        it.skip.failing('should accept a good repository SSH URL with a URL-encoded space', async () => {
+        it('should accept a good repository SSH URL with a URL-encoded space', async () => {
             const repositoryUrl = 'git@github.com:flxbl-io/sfp%20test.git';
 
             let sfpPackage: SfpPackage = new SfpPackage();
